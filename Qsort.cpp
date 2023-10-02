@@ -1,0 +1,127 @@
+#include <assert.h>
+#include <ctype.h>
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "Text_Funcs.h"
+#include "Qsort.h"
+
+size_t my_qsort(struct line* lines, size_t left, size_t right,
+                int (*comp)(const struct line*, const struct line*)) {
+    assert(lines != NULL);
+
+    if (right - left == 0)
+        return 1;
+    if (right - left == 1) {
+        if ((*comp)(lines + left, lines + right) == 1)
+            swap(lines, left, right);
+        return 2;
+    }
+    size_t mid = partition(lines, left, right, comp);
+    my_qsort(lines, left, mid, comp);
+    my_qsort(lines, mid + 1, right, comp);
+    return right - left + 1;
+}
+
+void swap(struct line* lines, size_t left, size_t right) {
+    assert(lines != NULL);
+
+    struct line temp = lines[left];
+    lines[left] = lines[right];
+    lines[right] = temp;
+}
+
+size_t partition(struct line* lines, size_t left, size_t right,
+                 int (*comp)(const struct line*, const struct line*)) {
+    assert(lines != NULL);
+
+    struct line separator = lines[left + rand() % (right - left)];
+    while (left <= right) {
+        while ((*comp)(lines + left, &separator) == -1)
+            left++;
+        while ((*comp)(lines + right, &separator) == 1)
+            right--;
+        if (left < right) {
+            swap(lines, left, right);
+            left++;
+            right--;
+        }
+        else
+            return right;
+    }
+    return right;
+}
+
+int str_compare_lr(const struct line* line1, const struct line* line2) {
+    assert(line1 != NULL);
+    assert(line2 != NULL);
+
+    const char* str1 = line1->start;
+    const char* str2 = line2->start;
+    size_t index1 = 0, index2 = 0;
+    while (str1[index1] != '\0' && str2[index2] != '\0') {
+        while (!isalpha(str1[index1]))
+            index1++;
+        while (!isalpha(str2[index2]))
+            index2++;
+        if (str1[index1] == '\0' || str2[index2] == '\0')
+            break;
+
+        int alpha1 = 0, alpha2 = 0;
+        alpha1 = tolower(str1[index1]) - 'a';
+        alpha2 = tolower(str2[index2]) - 'a';
+
+        if (alpha1 > alpha2)
+            return 1;
+        else if (alpha1 < alpha2)
+            return -1;
+        else {
+            index1++;
+            index2++;
+        }
+    }
+    if (str1[index1] == '\0' && str2[index2] == '\0')
+        return 0;
+    else if (str1[index1] == '\0' && str2[index2] != '\0')
+        return -1;
+    else
+        return 1;
+}
+
+int str_compare_rl(const struct line* line1, const struct line* line2) {
+    assert(line1 != NULL);
+    assert(line2 != NULL);
+
+    const char* str1 = line1->start;
+    const char* str2 = line2->start;
+    int index1 = line1->len, index2 = line2->len;
+    while (index1 >= 0 && index2 >= 0) {
+        while (!isalpha(str1[index1]) && index1 >= 0)
+            index1--;
+        while (!isalpha(str2[index2]) && index2 >= 0)
+            index2--;
+        if (index1 < 0 || index2 < 0)
+            break;
+
+        int alpha1 = 0, alpha2 = 0;
+        alpha1 = tolower(str1[index1]) - 'a';
+        alpha2 = tolower(str2[index2]) - 'a';
+
+        if (alpha1 > alpha2)
+            return 1;
+        else if (alpha1 < alpha2)
+            return -1;
+        else {
+            index1--;
+            index2--;
+        }
+    }
+    if (index1 < 0 && index2 < 0)
+        return 0;
+    else if (index1 < 0 && index2 >= 0)
+        return -1;
+    else
+        return 1;
+}

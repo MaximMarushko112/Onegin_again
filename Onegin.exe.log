@@ -1,0 +1,1142 @@
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042D7DB в функции alpha_count() в файле C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp на строке 27. Попытка прочесть данные по адресу NULL в модуле C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x164C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042D7DB in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: alpha_count() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (27):
+
+     25: size_t alpha_count(const char* str) {
+     26:     size_t i = 0, res = 0;
+=>   27:     while (str[i] != '\0') {
+     28:         if (isalpha(str[i]))
+     29:             res++;
+
+# 1 0x0042D8D1 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: read_lines() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (48):
+
+     46:     for (i = 0; i < str_num; i++)
+     47:         (lines[i]).len = strlen((lines[i]).start);
+=>   48:         (lines[i]).alpha_count = alpha_count((lines[i]).start);
+     49: }
+     50: 
+
+# 2 0x0042BDC5 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: main() at C:/Users/PC/Desktop/huawei/Onegin/Onegin.cpp (23):
+
+     21:     Onegin.lines = (struct line*) calloc(Onegin.str_num, sizeof(struct line));
+     22:     printf("%p\n", Onegin.lines);
+=>   23:     read_lines(Onegin.lines, Onegin.buffer);
+     24:     printf("%p\n", Onegin.lines);
+     25:     for (size_t i = 0; i < 100; i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\pc\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  2 2023 22:09:22, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 02 2023 22:09:43
+
+Run file:	C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe
+Directory:	C:\Users\PC\Desktop\huawei\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042D7DB в функции alpha_count() в файле C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp на строке 27. Попытка прочесть данные по адресу NULL в модуле C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x164C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042D7DB in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: alpha_count() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (27):
+
+     25: size_t alpha_count(const char* str) {
+     26:     size_t i = 0, res = 0;
+=>   27:     while (str[i] != '\0') {
+     28:         if (isalpha(str[i]))
+     29:             res++;
+
+# 1 0x0042D8D1 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: read_lines() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (48):
+
+     46:     for (i = 0; i < str_num; i++)
+     47:         (lines[i]).len = strlen((lines[i]).start);
+=>   48:         (lines[i]).alpha_count = alpha_count((lines[i]).start);
+     49: }
+     50: 
+
+# 2 0x0042BDC5 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: main() at C:/Users/PC/Desktop/huawei/Onegin/Onegin.cpp (23):
+
+     21:     Onegin.lines = (struct line*) calloc(Onegin.str_num, sizeof(struct line));
+     22:     printf("%p\n", Onegin.lines);
+=>   23:     read_lines(Onegin.lines, Onegin.buffer);
+     24:     printf("%p\n", Onegin.lines);
+     25:     for (size_t i = 0; i < 100; i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\pc\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  2 2023 22:09:22, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 02 2023 22:09:43
+
+Run file:	C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe
+Directory:	C:\Users\PC\Desktop\huawei\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042D7DB в функции alpha_count() в файле C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp на строке 27. Попытка прочесть данные по адресу NULL в модуле C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x3F90 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042D7DB in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: alpha_count() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (27):
+
+     25: size_t alpha_count(const char* str) {
+     26:     size_t i = 0, res = 0;
+=>   27:     while (str[i] != '\0') {
+     28:         if (isalpha(str[i]))
+     29:             res++;
+
+# 1 0x0042D909 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: read_lines() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (50):
+
+     48:     for (i = 0; i < str_num; i++)
+     49:         (lines[i]).len = strlen((lines[i]).start);
+=>   50:         (lines[i]).alpha_count = alpha_count((lines[i]).start);
+     51: }
+     52: 
+
+# 2 0x0042BDC5 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: main() at C:/Users/PC/Desktop/huawei/Onegin/Onegin.cpp (23):
+
+     21:     Onegin.lines = (struct line*) calloc(Onegin.str_num, sizeof(struct line));
+     22:     printf("%p\n", Onegin.lines);
+=>   23:     read_lines(Onegin.lines, Onegin.buffer);
+     24:     printf("%p\n", Onegin.lines);
+     25:     for (size_t i = 0; i < 100; i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\pc\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  2 2023 22:09:22, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 02 2023 22:15:43
+
+Run file:	C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe
+Directory:	C:\Users\PC\Desktop\huawei\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042D7DB в функции alpha_count() в файле C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp на строке 27. Попытка прочесть данные по адресу NULL в модуле C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x3F90 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042D7DB in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: alpha_count() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (27):
+
+     25: size_t alpha_count(const char* str) {
+     26:     size_t i = 0, res = 0;
+=>   27:     while (str[i] != '\0') {
+     28:         if (isalpha(str[i]))
+     29:             res++;
+
+# 1 0x0042D909 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: read_lines() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (50):
+
+     48:     for (i = 0; i < str_num; i++)
+     49:         (lines[i]).len = strlen((lines[i]).start);
+=>   50:         (lines[i]).alpha_count = alpha_count((lines[i]).start);
+     51: }
+     52: 
+
+# 2 0x0042BDC5 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: main() at C:/Users/PC/Desktop/huawei/Onegin/Onegin.cpp (23):
+
+     21:     Onegin.lines = (struct line*) calloc(Onegin.str_num, sizeof(struct line));
+     22:     printf("%p\n", Onegin.lines);
+=>   23:     read_lines(Onegin.lines, Onegin.buffer);
+     24:     printf("%p\n", Onegin.lines);
+     25:     for (size_t i = 0; i < 100; i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\pc\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  2 2023 22:09:22, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 02 2023 22:15:43
+
+Run file:	C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe
+Directory:	C:\Users\PC\Desktop\huawei\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042D7DB в функции alpha_count() в файле C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp на строке 27. Попытка прочесть данные по адресу NULL в модуле C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x3894 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042D7DB in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: alpha_count() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (27):
+
+     25: size_t alpha_count(const char* str) {
+     26:     size_t i = 0, res = 0;
+=>   27:     while (str[i] != '\0') {
+     28:         if (isalpha(str[i]))
+     29:             res++;
+
+# 1 0x0042D909 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: read_lines() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (50):
+
+     48:     for (i = 0; i < str_num; i++)
+     49:         (lines[i]).len = strlen((lines[i]).start);
+=>   50:         (lines[i]).alpha_count = alpha_count((lines[i]).start);
+     51: }
+     52: 
+
+# 2 0x0042BDC5 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: main() at C:/Users/PC/Desktop/huawei/Onegin/Onegin.cpp (23):
+
+     21:     Onegin.lines = (struct line*) calloc(Onegin.str_num, sizeof(struct line));
+     22:     printf("%p\n", Onegin.lines);
+=>   23:     read_lines(Onegin.lines, Onegin.buffer);
+     24:     printf("%p\n", Onegin.lines);
+     25:     for (size_t i = 0; i < 100; i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\pc\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  2 2023 22:09:22, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 02 2023 22:16:22
+
+Run file:	C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe
+Directory:	C:\Users\PC\Desktop\huawei\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042D7DB в функции alpha_count() в файле C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp на строке 27. Попытка прочесть данные по адресу NULL в модуле C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x3894 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042D7DB in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: alpha_count() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (27):
+
+     25: size_t alpha_count(const char* str) {
+     26:     size_t i = 0, res = 0;
+=>   27:     while (str[i] != '\0') {
+     28:         if (isalpha(str[i]))
+     29:             res++;
+
+# 1 0x0042D909 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: read_lines() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (50):
+
+     48:     for (i = 0; i < str_num; i++)
+     49:         (lines[i]).len = strlen((lines[i]).start);
+=>   50:         (lines[i]).alpha_count = alpha_count((lines[i]).start);
+     51: }
+     52: 
+
+# 2 0x0042BDC5 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: main() at C:/Users/PC/Desktop/huawei/Onegin/Onegin.cpp (23):
+
+     21:     Onegin.lines = (struct line*) calloc(Onegin.str_num, sizeof(struct line));
+     22:     printf("%p\n", Onegin.lines);
+=>   23:     read_lines(Onegin.lines, Onegin.buffer);
+     24:     printf("%p\n", Onegin.lines);
+     25:     for (size_t i = 0; i < 100; i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\pc\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  2 2023 22:09:22, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 02 2023 22:16:22
+
+Run file:	C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe
+Directory:	C:\Users\PC\Desktop\huawei\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042D7DB в функции alpha_count() в файле C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp на строке 27. Попытка прочесть данные по адресу NULL в модуле C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x2410 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042D7DB in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: alpha_count() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (27):
+
+     25: size_t alpha_count(const char* str) {
+     26:     size_t i = 0, res = 0;
+=>   27:     while (str[i] != '\0') {
+     28:         if (isalpha(str[i]))
+     29:             res++;
+
+# 1 0x0042D928 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: read_lines() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (50):
+
+     48:     for (i = 0; i < str_num; i++)
+     49:         (lines[i]).len = strlen((lines[i]).start);
+=>   50:         (lines[i]).alpha_count = alpha_count((lines[i]).start);
+     51: }
+     52: 
+
+# 2 0x0042BDC5 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: main() at C:/Users/PC/Desktop/huawei/Onegin/Onegin.cpp (23):
+
+     21:     Onegin.lines = (struct line*) calloc(Onegin.str_num, sizeof(struct line));
+     22:     printf("%p\n", Onegin.lines);
+=>   23:     read_lines(Onegin.lines, Onegin.buffer);
+     24:     printf("%p\n", Onegin.lines);
+     25:     for (size_t i = 0; i < 100; i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\pc\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  2 2023 22:09:22, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 02 2023 22:18:59
+
+Run file:	C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe
+Directory:	C:\Users\PC\Desktop\huawei\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042D7DB в функции alpha_count() в файле C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp на строке 27. Попытка прочесть данные по адресу NULL в модуле C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x2410 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042D7DB in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: alpha_count() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (27):
+
+     25: size_t alpha_count(const char* str) {
+     26:     size_t i = 0, res = 0;
+=>   27:     while (str[i] != '\0') {
+     28:         if (isalpha(str[i]))
+     29:             res++;
+
+# 1 0x0042D928 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: read_lines() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (50):
+
+     48:     for (i = 0; i < str_num; i++)
+     49:         (lines[i]).len = strlen((lines[i]).start);
+=>   50:         (lines[i]).alpha_count = alpha_count((lines[i]).start);
+     51: }
+     52: 
+
+# 2 0x0042BDC5 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: main() at C:/Users/PC/Desktop/huawei/Onegin/Onegin.cpp (23):
+
+     21:     Onegin.lines = (struct line*) calloc(Onegin.str_num, sizeof(struct line));
+     22:     printf("%p\n", Onegin.lines);
+=>   23:     read_lines(Onegin.lines, Onegin.buffer);
+     24:     printf("%p\n", Onegin.lines);
+     25:     for (size_t i = 0; i < 100; i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\pc\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  2 2023 22:09:22, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 02 2023 22:18:59
+
+Run file:	C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe
+Directory:	C:\Users\PC\Desktop\huawei\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042D7DB в функции alpha_count() в файле C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp на строке 27. Попытка прочесть данные по адресу NULL в модуле C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x13E4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042D7DB in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: alpha_count() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (27):
+
+     25: size_t alpha_count(const char* str) {
+     26:     size_t i = 0, res = 0;
+=>   27:     while (str[i] != '\0') {
+     28:         if (isalpha(str[i]))
+     29:             res++;
+
+# 1 0x0042D92F in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: read_lines() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (50):
+
+     48:     for (i = 0; i < str_num; i++)
+     49:         (lines[i]).len = strlen((lines[i]).start);
+=>   50:         (lines[i]).alpha_count = alpha_count((lines[i]).start);
+     51: }
+     52: 
+
+# 2 0x0042BDC5 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: main() at C:/Users/PC/Desktop/huawei/Onegin/Onegin.cpp (23):
+
+     21:     Onegin.lines = (struct line*) calloc(Onegin.str_num, sizeof(struct line));
+     22:     printf("%p\n", Onegin.lines);
+=>   23:     read_lines(Onegin.lines, Onegin.buffer);
+     24:     printf("%p\n", Onegin.lines);
+     25:     for (size_t i = 0; i < 100; i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\pc\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  2 2023 22:09:22, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 02 2023 22:20:15
+
+Run file:	C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe
+Directory:	C:\Users\PC\Desktop\huawei\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042D7DB в функции alpha_count() в файле C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp на строке 27. Попытка прочесть данные по адресу NULL в модуле C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x13E4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042D7DB in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: alpha_count() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (27):
+
+     25: size_t alpha_count(const char* str) {
+     26:     size_t i = 0, res = 0;
+=>   27:     while (str[i] != '\0') {
+     28:         if (isalpha(str[i]))
+     29:             res++;
+
+# 1 0x0042D92F in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: read_lines() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (50):
+
+     48:     for (i = 0; i < str_num; i++)
+     49:         (lines[i]).len = strlen((lines[i]).start);
+=>   50:         (lines[i]).alpha_count = alpha_count((lines[i]).start);
+     51: }
+     52: 
+
+# 2 0x0042BDC5 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: main() at C:/Users/PC/Desktop/huawei/Onegin/Onegin.cpp (23):
+
+     21:     Onegin.lines = (struct line*) calloc(Onegin.str_num, sizeof(struct line));
+     22:     printf("%p\n", Onegin.lines);
+=>   23:     read_lines(Onegin.lines, Onegin.buffer);
+     24:     printf("%p\n", Onegin.lines);
+     25:     for (size_t i = 0; i < 100; i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\pc\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  2 2023 22:09:22, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 02 2023 22:20:15
+
+Run file:	C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe
+Directory:	C:\Users\PC\Desktop\huawei\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042D7DB в функции alpha_count() в файле C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp на строке 27. Попытка прочесть данные по адресу NULL в модуле C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0xC54 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042D7DB in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: alpha_count() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (27):
+
+     25: size_t alpha_count(const char* str) {
+     26:     size_t i = 0, res = 0;
+=>   27:     while (str[i] != '\0') {
+     28:         if (isalpha(str[i]))
+     29:             res++;
+
+# 1 0x0042D92F in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: read_lines() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (50):
+
+     48:     for (i = 0; i < str_num; i++)
+     49:         lines[i].len = strlen(lines[i].start);
+=>   50:         lines[i].alpha_count = alpha_count(lines[i].start);
+     51: }
+     52: 
+
+# 2 0x0042BDC5 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: main() at C:/Users/PC/Desktop/huawei/Onegin/Onegin.cpp (23):
+
+     21:     Onegin.lines = (struct line*) calloc(Onegin.str_num, sizeof(struct line));
+     22:     printf("%p\n", Onegin.lines);
+=>   23:     read_lines(Onegin.lines, Onegin.buffer);
+     24:     printf("%p\n", Onegin.lines);
+     25:     for (size_t i = 0; i < 100; i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\pc\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  2 2023 22:09:22, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 02 2023 22:21:35
+
+Run file:	C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe
+Directory:	C:\Users\PC\Desktop\huawei\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042D7DB в функции alpha_count() в файле C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp на строке 27. Попытка прочесть данные по адресу NULL в модуле C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0xC54 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042D7DB in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: alpha_count() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (27):
+
+     25: size_t alpha_count(const char* str) {
+     26:     size_t i = 0, res = 0;
+=>   27:     while (str[i] != '\0') {
+     28:         if (isalpha(str[i]))
+     29:             res++;
+
+# 1 0x0042D92F in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: read_lines() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (50):
+
+     48:     for (i = 0; i < str_num; i++)
+     49:         lines[i].len = strlen(lines[i].start);
+=>   50:         lines[i].alpha_count = alpha_count(lines[i].start);
+     51: }
+     52: 
+
+# 2 0x0042BDC5 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: main() at C:/Users/PC/Desktop/huawei/Onegin/Onegin.cpp (23):
+
+     21:     Onegin.lines = (struct line*) calloc(Onegin.str_num, sizeof(struct line));
+     22:     printf("%p\n", Onegin.lines);
+=>   23:     read_lines(Onegin.lines, Onegin.buffer);
+     24:     printf("%p\n", Onegin.lines);
+     25:     for (size_t i = 0; i < 100; i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\pc\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  2 2023 22:09:22, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 02 2023 22:21:35
+
+Run file:	C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe
+Directory:	C:\Users\PC\Desktop\huawei\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042D7DB в функции alpha_count() в файле C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp на строке 27. Попытка прочесть данные по адресу NULL в модуле C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0xFA4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042D7DB in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: alpha_count() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (27):
+
+     25: size_t alpha_count(char* str) {
+     26:     size_t i = 0, res = 0;
+=>   27:     while (str[i] != '\0') {
+     28:         if (isalpha(str[i]))
+     29:             res++;
+
+# 1 0x0042D92F in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: read_lines() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (50):
+
+     48:     for (i = 0; i < str_num; i++)
+     49:         lines[i].len = strlen(lines[i].start);
+=>   50:         lines[i].alpha_count = alpha_count(lines[i].start);
+     51: }
+     52: 
+
+# 2 0x0042BDC5 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: main() at C:/Users/PC/Desktop/huawei/Onegin/Onegin.cpp (23):
+
+     21:     Onegin.lines = (struct line*) calloc(Onegin.str_num, sizeof(struct line));
+     22:     printf("%p\n", Onegin.lines);
+=>   23:     read_lines(Onegin.lines, Onegin.buffer);
+     24:     printf("%p\n", Onegin.lines);
+     25:     for (size_t i = 0; i < 100; i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\pc\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  2 2023 22:22:35, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 02 2023 22:22:44
+
+Run file:	C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe
+Directory:	C:\Users\PC\Desktop\huawei\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042D7DB в функции alpha_count() в файле C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp на строке 27. Попытка прочесть данные по адресу NULL в модуле C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0xFA4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042D7DB in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: alpha_count() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (27):
+
+     25: size_t alpha_count(char* str) {
+     26:     size_t i = 0, res = 0;
+=>   27:     while (str[i] != '\0') {
+     28:         if (isalpha(str[i]))
+     29:             res++;
+
+# 1 0x0042D92F in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: read_lines() at C:/Users/PC/Desktop/huawei/Onegin/Text_Funcs.cpp (50):
+
+     48:     for (i = 0; i < str_num; i++)
+     49:         lines[i].len = strlen(lines[i].start);
+=>   50:         lines[i].alpha_count = alpha_count(lines[i].start);
+     51: }
+     52: 
+
+# 2 0x0042BDC5 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: main() at C:/Users/PC/Desktop/huawei/Onegin/Onegin.cpp (23):
+
+     21:     Onegin.lines = (struct line*) calloc(Onegin.str_num, sizeof(struct line));
+     22:     printf("%p\n", Onegin.lines);
+=>   23:     read_lines(Onegin.lines, Onegin.buffer);
+     24:     printf("%p\n", Onegin.lines);
+     25:     for (size_t i = 0; i < 100; i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\pc\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  2 2023 22:22:35, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 02 2023 22:22:44
+
+Run file:	C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe
+Directory:	C:\Users\PC\Desktop\huawei\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x772EDFF0 в функции strlen(). Попытка прочесть данные по адресу NULL в модуле C:\WINDOWS\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x2F64 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x772EDFF0 in C:\WINDOWS\System32\msvcrt.dll: strlen()
+
+# 1 0x0042BDC5 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: main() at C:/Users/PC/Desktop/huawei/Onegin/Onegin.cpp (23):
+
+     21:     Onegin.lines = (struct line*) calloc(Onegin.str_num, sizeof(struct line));
+     22:     printf("%p\n", Onegin.lines);
+=>   23:     read_lines(Onegin.lines, Onegin.buffer);
+     24:     printf("%p\n", Onegin.lines);
+     25:     for (size_t i = 0; i < 100; i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\pc\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  2 2023 22:22:35, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 02 2023 22:26:51
+
+Run file:	C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe
+Directory:	C:\Users\PC\Desktop\huawei\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x772EDFF0 в функции strlen(). Попытка прочесть данные по адресу NULL в модуле C:\WINDOWS\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x2F64 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x772EDFF0 in C:\WINDOWS\System32\msvcrt.dll: strlen()
+
+# 1 0x0042BDC5 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: main() at C:/Users/PC/Desktop/huawei/Onegin/Onegin.cpp (23):
+
+     21:     Onegin.lines = (struct line*) calloc(Onegin.str_num, sizeof(struct line));
+     22:     printf("%p\n", Onegin.lines);
+=>   23:     read_lines(Onegin.lines, Onegin.buffer);
+     24:     printf("%p\n", Onegin.lines);
+     25:     for (size_t i = 0; i < 100; i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\pc\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  2 2023 22:22:35, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 02 2023 22:26:51
+
+Run file:	C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe
+Directory:	C:\Users\PC\Desktop\huawei\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x772EDFF0 в функции strlen(). Попытка прочесть данные по адресу NULL в модуле C:\WINDOWS\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x13F0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x772EDFF0 in C:\WINDOWS\System32\msvcrt.dll: strlen()
+
+# 1 0x0042BDC5 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: main() at C:/Users/PC/Desktop/huawei/Onegin/Onegin.cpp (23):
+
+     21:     Onegin.lines = (struct line*) calloc(Onegin.str_num, sizeof(struct line));
+     22:     printf("%p\n", Onegin.lines);
+=>   23:     read_lines(Onegin.lines, Onegin.buffer);
+     24:     printf("%p\n", Onegin.lines);
+     25:     for (size_t i = 0; i < 100; i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\pc\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  2 2023 22:22:35, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 02 2023 22:30:35
+
+Run file:	C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe
+Directory:	C:\Users\PC\Desktop\huawei\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x772EDFF0 в функции strlen(). Попытка прочесть данные по адресу NULL в модуле C:\WINDOWS\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x13F0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x772EDFF0 in C:\WINDOWS\System32\msvcrt.dll: strlen()
+
+# 1 0x0042BDC5 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: main() at C:/Users/PC/Desktop/huawei/Onegin/Onegin.cpp (23):
+
+     21:     Onegin.lines = (struct line*) calloc(Onegin.str_num, sizeof(struct line));
+     22:     printf("%p\n", Onegin.lines);
+=>   23:     read_lines(Onegin.lines, Onegin.buffer);
+     24:     printf("%p\n", Onegin.lines);
+     25:     for (size_t i = 0; i < 100; i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\pc\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  2 2023 22:22:35, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 02 2023 22:30:35
+
+Run file:	C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe
+Directory:	C:\Users\PC\Desktop\huawei\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x772EDFF0 в функции strlen(). Попытка прочесть данные по адресу NULL в модуле C:\WINDOWS\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x4660 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x772EDFF0 in C:\WINDOWS\System32\msvcrt.dll: strlen()
+
+# 1 0x0042BDC5 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: main() at C:/Users/PC/Desktop/huawei/Onegin/Onegin.cpp (23):
+
+     21:     Onegin.lines = (struct line*) calloc(Onegin.str_num, sizeof(struct line));
+     22:     printf("%p\n", Onegin.lines);
+=>   23:     read_lines(Onegin.lines, Onegin.buffer);
+     24:     printf("%p\n", Onegin.lines);
+     25:     for (size_t i = 0; i < 100; i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\pc\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  2 2023 22:22:35, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 02 2023 22:31:56
+
+Run file:	C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe
+Directory:	C:\Users\PC\Desktop\huawei\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x772EDFF0 в функции strlen(). Попытка прочесть данные по адресу NULL в модуле C:\WINDOWS\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x4660 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x772EDFF0 in C:\WINDOWS\System32\msvcrt.dll: strlen()
+
+# 1 0x0042BDC5 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: main() at C:/Users/PC/Desktop/huawei/Onegin/Onegin.cpp (23):
+
+     21:     Onegin.lines = (struct line*) calloc(Onegin.str_num, sizeof(struct line));
+     22:     printf("%p\n", Onegin.lines);
+=>   23:     read_lines(Onegin.lines, Onegin.buffer);
+     24:     printf("%p\n", Onegin.lines);
+     25:     for (size_t i = 0; i < 100; i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\pc\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  2 2023 22:22:35, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 02 2023 22:31:56
+
+Run file:	C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe
+Directory:	C:\Users\PC\Desktop\huawei\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x772EDFF0 в функции strlen(). Попытка прочесть данные по адресу NULL в модуле C:\WINDOWS\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x1F38 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x772EDFF0 in C:\WINDOWS\System32\msvcrt.dll: strlen()
+
+# 1 0x0042BDC5 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: main() at C:/Users/PC/Desktop/huawei/Onegin/Onegin.cpp (23):
+
+     21:     Onegin.lines = (struct line*) calloc(Onegin.str_num, sizeof(struct line));
+     22:     printf("%p\n", Onegin.lines);
+=>   23:     read_lines(Onegin.lines, Onegin.buffer);
+     24:     printf("%p\n", Onegin.lines);
+     25:     for (size_t i = 0; i < 100; i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\pc\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  2 2023 22:22:35, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 02 2023 22:33:01
+
+Run file:	C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe
+Directory:	C:\Users\PC\Desktop\huawei\Onegin
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x772EDFF0 в функции strlen(). Попытка прочесть данные по адресу NULL в модуле C:\WINDOWS\System32\msvcrt.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400], Instance: 0x005042FC (32-bit), Flags: Cmdre0, Thread: 0x1F38 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x772EDFF0 in C:\WINDOWS\System32\msvcrt.dll: strlen()
+
+# 1 0x0042BDC5 in C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe: main() at C:/Users/PC/Desktop/huawei/Onegin/Onegin.cpp (23):
+
+     21:     Onegin.lines = (struct line*) calloc(Onegin.str_num, sizeof(struct line));
+     22:     printf("%p\n", Onegin.lines);
+=>   23:     read_lines(Onegin.lines, Onegin.buffer);
+     24:     printf("%p\n", Onegin.lines);
+     25:     for (size_t i = 0; i < 100; i++)
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 172, Date: 2023-08-12 11:12:24 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\pc\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Oct  2 2023 22:22:35, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Oct 02 2023 22:33:01
+
+Run file:	C:\Users\PC\Desktop\huawei\Onegin\Onegin.exe
+Directory:	C:\Users\PC\Desktop\huawei\Onegin
+
+--------------------------------------------------
