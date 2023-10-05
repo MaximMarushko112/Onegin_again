@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys\stat.h>
+#include <sys/stat.h>
 
 #include "Text_Funcs.h"
 
@@ -19,7 +19,7 @@ size_t str_num(const char* text) {
     assert(text != NULL);
 
     size_t i = 0, str_num = 1;
-    while(text[i] != '\0') {
+    while(text[i] != '\0') {  // what if there is no '\n' at the end of the file? you'll lose last string!
         if (text[i] == '\n')
             str_num++;
         i++;
@@ -48,7 +48,10 @@ void read_lines(struct line* lines, char* text) {
     while (text[i] != '\0') {
         if (text[i] == '\n') {
             text[i] = '\0';
-            lines[str_num].start = text + i + 1;
+            lines[str_num].start = text + i + 1;    // what if there is '\n' at the end of the file?
+                                                    // 1) text + i + 1 points to somewhat that is not in the file
+                                                    // 2) last lines[str_num] operation refers to element which
+                                                    //    is out of line array bounds
             lines[str_num - 1].len = line_len;
             line_len = 0;
             str_num++;
@@ -79,7 +82,8 @@ void clear_lines(struct line* lines, size_t str_num) {
     assert(lines != NULL);
 
     for (size_t i = 0; i < str_num; i++) {
-        free(lines[i].start);
+        free(lines[i].start);   // why do you free pointers that do not point to the beginning of allocated memory?
+                                // in clear_text you do this by free(text->buffer), which is equal to lines[0].start
         lines[i].start = NULL;
         lines[i].len = 0;
     }
