@@ -62,8 +62,10 @@ int str_compare_lr(const struct line* line1, const struct line* line2) {
     const char* str2 = line2->start;
     size_t index1 = 0, index2 = 0;
     while (str1[index1] != '\0' && str2[index2] != '\0') {
-        while (!isalpha(str1[index1]))
-            index1++;
+        while (!isalpha(str1[index1]))  // imagine you have some spaces at the end of your string:
+            index1++;                   // this while won't stop at '\0', but will continue until
+                                        // it finds byte that can be interpreted as letter
+                                        // TL;DR: possible out of bounds, it's better to rely on string length
         while (!isalpha(str2[index2]))
             index2++;
         if (str1[index1] == '\0' || str2[index2] == '\0')
@@ -98,7 +100,7 @@ int str_compare_rl(const struct line* line1, const struct line* line2) {
     const char* str2 = line2->start;
     int index1 = line1->len, index2 = line2->len;
     while (index1 >= 0 && index2 >= 0) {
-        while (!isalpha(str1[index1]) && index1 >= 0)
+        while (!isalpha(str1[index1]) && index1 >= 0)   // going out of bounds is taken into account, nice
             index1--;
         while (!isalpha(str2[index2]) && index2 >= 0)
             index2--;
